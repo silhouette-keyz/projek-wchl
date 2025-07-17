@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web3 Event Ticketing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/ethers/dist/ethers.min.js"></script>
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="gradient-bg text-white shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-ticket-alt text-2xl"></i>
+                <span class="text-xl font-bold">Tiketmu.com</span>
+            </div>
+             <div class="flex space-x-4">
+                    <button class="px-4 py-2 rounded-lg bg-white text-indigo-600 font-medium hover:bg-gray-100 transition">Log In</button>
+                    <button class="px-4 py-2 rounded-lg bg-indigo-800 text-white font-medium hover:bg-indigo-900 transition">Sign Up</button>
+                </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-8">
+        <!-- Hero Section -->
+        <div class="gradient-bg text-white rounded-xl p-8 mb-8">
+            <h1 class="text-4xl font-bold mb-4">Beli Tiketmu Disini!</h1>
+            <p class="text-xl mb-6">Tiket Aman, Dompet nyaman!.</p>
+            <div class="flex space-x-4">
+            </div>
+        </div>
+
+        <!-- Anti-Scalping Features -->
+    <section id="features" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Benefit pembelian tiket</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Benefit yang akan kamu dapatkan ketika melakukan pembelian tiket.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="text-indigo-500 mb-4">
+                        <i class="fas fa-fingerprint text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">NFT Tiket</h3>
+                    <p class="text-gray-600 mb-4">Setiap tiket adalah NFT yang unik, memastikan keaslian dan mencegah duplikasi atau pemalsuan.</p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Kepemilikan yang dapat diverifikasi</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Pembatasan Transfer</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="text-indigo-500 mb-4">
+                        <i class="fas fa-chart-line text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Harga Dinamis</h3>
+                    <p class="text-gray-600 mb-4">Kami menyesuaikan harga berdasarkan permintaan.</p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Penyesuaian Harga yang nyata</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Algoritma berbasis permintaan</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="text-indigo-500 mb-4">
+                        <i class="fas fa-id-card text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Bukti Kehadiran</h3>
+                    <p class="text-gray-600 mb-4">Masukkan daftar hadir untuk mengumpulkan lencana.</p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Harga Tiket Eksklusif</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Merchandise menarik</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Featured Events -->
+        <h2 class="text-2xl font-bold mb-6">Event Tersedia</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            <!-- Event Card 1 -->
+            <div class="ticket-card bg-white rounded-xl overflow-hidden">
+                <div class="relative">
+                    <img src="img/event.jpg" alt="Music festival with colorful stage lights and large crowd" class="w-full h-48 object-cover">
+                    <div class="absolute top-4 left-4 bg-white text-indigo-600 px-2 py-1 rounded-lg text-xs font-medium">
+                        50% Sold
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold text-lg mb-2">Ruang Bermusik 2025</h3>
+                    <p class="text-gray-600 text-sm mb-3">19-20 Juli 2025. Tasikmalaya.</p>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <p class="text-gray-500 text-xs">Mulai dari harga</p>
+                            <p class="font-bold">IDR 150K</p>
+                        </div>
+                       <button class="details-btn bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-indigo-700 transition" data-event-id="event1">
+                            Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event Card 2 -->
+            <div class="ticket-card bg-white rounded-xl overflow-hidden">
+                <div class="relative">
+                    <img src="img/event1.jpg" alt="Tech conference stage with speaker and audience" class="w-full h-48 object-cover">
+                    <div class="absolute top-4 left-4 bg-white text-indigo-600 px-2 py-1 rounded-lg text-xs font-medium">
+                        40% Sold
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold text-lg mb-2">La La Land In The Concert</h3>
+                    <p class="text-gray-600 text-sm mb-3"> 26 Juli 2025. JIExpo Kemayoran.</p>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <p class="text-gray-500 text-xs">Mulai dari harga</p>
+                            <p class="font-bold">IDR 900K</p>
+                        </div>
+                        <button class="details-btn bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-indigo-700 transition" data-event-id="event2">
+                            Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event Card 3 -->
+            <div class="ticket-card bg-white rounded-xl overflow-hidden">
+                <div class="relative">
+                    <img src="img/event3.jpg" alt="Modern art exhibition with abstract paintings and sculptures" class="w-full h-48 object-cover">
+                    <div class="absolute top-4 left-4 bg-white text-indigo-600 px-2 py-1 rounded-lg text-xs font-medium">
+                        10% Sold
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold text-lg mb-2">R-I Fest 2025</h3>
+                    <p class="text-gray-600 text-sm mb-3">Jumat, 15 Agu 2025 - Minggu, 17 Agu 2025. Parkir Barat Jiexpo Kemayoran</p>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <p class="text-gray-500 text-xs">Mulai </p>
+                            <p class="font-bold">IDR 80k</p>
+                        </div>
+                       <button class="details-btn bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-indigo-700 transition" data-event-id="event3">
+                            Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+  <!-- Modal Event -->
+  <div id="event-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div class="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+      <div class="relative">
+        <img src="img/event.jpg" alt="Event" class="w-full h-64 object-cover" />
+        <button id="close-modal-btn" class="absolute top-4 right-4 bg-white text-gray-800 p-2 rounded-full hover:bg-gray-200 transition">X</button>
+      </div>
+      <div class="p-6">
+        <h2 class="text-2xl font-bold mb-2">[Judul Event]</h2>
+        <div class="flex items-center text-gray-600 mb-4">
+          <i class="far fa-calendar-alt mr-2"></i>
+          <span id="event-date">Tanggal</span>
+          <i class="far fa-clock ml-4 mr-2"></i>
+          <span id="event-duration">Durasi</span>
+        </div>
+        <div class="flex items-center text-gray-600 mb-6">
+          <i class="fas fa-map-marker-alt mr-2"></i>
+          <span id="event-location">Lokasi</span>
+        </div>
+        <div class="mb-6">
+          <h3 class="font-bold mb-2">Tentang konser</h3>
+          <p id="event-description" class="text-gray-700">Deskripsi event di sini...</p>
+        </div>
+        <div class="bg-gray-100 p-4 rounded-lg mb-6">
+          <h3 class="font-bold mb-2">Pilih Tiket</h3>
+          <div id="ticket-prices" class="space-y-2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+      <!-- Modal Pembayaran -->
+<div id="purchase-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-30">
+  <div class="bg-white rounded-lg p-6 w-full max-w-lg relative">
+    <button id="close-purchase-modal-btn" class="absolute top-2 right-2 text-gray-500 hover:text-red-600">&times;</button>
+    <h2 class="text-xl font-bold mb-4">Pembayaran Tiket</h2>
+    
+    <p><strong>Event:</strong> <span id="purchase-event-title"></span></p>
+    <p><strong>Tipe Tiket:</strong> <span id="selected-type"></span></p>
+    <p><strong>Total Harga:</strong> <span id="selected-total"></span></p>
+
+    <div class="mt-6 space-y-4">
+      <!-- Kartu Kredit -->
+      <div class="border rounded-lg">
+        <button class="w-full text-left p-3 bg-gray-100 toggle-section">💳 Kartu Kredit / Debit Online</button>
+        <div class="hidden px-4 py-2 text-sm text-gray-700">
+          <label class="block mb-2">Nomor Kartu</label>
+          <input type="text" class="border w-full p-2 rounded" placeholder="1234 5678 9012 3456">
+        </div>
+      </div>
+
+      <!-- Transfer Bank -->
+      <div class="border rounded-lg">
+        <button class="w-full text-left p-3 bg-gray-100 toggle-section">🏦 Transfer Bank</button>
+        <div class="hidden px-4 py-2 text-sm text-gray-700">
+          <p>Pilih Bank:</p>
+          <ul class="list-disc pl-5 space-y-1">
+            <li>BCA</li>
+            <li>Mandiri</li>
+            <li>BNI</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- e-Wallet -->
+      <div class="border rounded-lg">
+        <button class="w-full text-left p-3 bg-gray-100 toggle-section">📱 e-Wallet</button>
+        <div class="hidden px-4 py-2 text-sm text-gray-700 space-y-2">
+          <button class="w-full text-left hover:bg-gray-100 p-2 rounded">OVO</button>
+          <button class="w-full text-left hover:bg-gray-100 p-2 rounded">DANA</button>
+          <button class="w-full text-left hover:bg-gray-100 p-2 rounded">LinkAja</button>
+          <button class="w-full text-left hover:bg-gray-100 p-2 rounded">ShopeePay</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-6">
+      <label class="inline-flex items-center">
+        <input type="checkbox" id="terms-check" class="mr-2"> Saya menyetujui syarat & ketentuan
+      </label>
+    </div>
+
+    <div class="mt-4">
+      <button id="confirm-purchase-btn" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 w-full">
+        Konfirmasi Pembelian
+      </button>
+    </div>
+  </div>
+</div>
+
+    <!-- Dynamic Pricing Demo -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Smart Dynamic Pricing</h2>
+                    <p class="text-xl text-gray-600 mb-6">Algoritma penetapan harga berbasis AI kami menyesuaikan biaya tiket berdasarkan permintaan waktu nyata, membuat penjualan eceran tidak layak secara ekonomi sekaligus memastikan akses yang adil.</p>                    
+                    <div class="bg-gray-50 p-6 rounded-xl mb-6">
+                        <h3 class="font-bold text-lg mb-3">Harga saat ini</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-center justify-between">
+                                <span>Waktu hingga acara</span>
+                                <span class="font-medium">3 hari</span>
+                            </li>
+                            <li class="flex items-center justify-between">
+                                <span>Ticket tersisa</span>
+                                <span class="font-medium">23%</span>
+                            </li>
+                            <li class="flex items-center justify-between">
+                                <span>Index permintaan</span>
+                                <span class="font-medium">Tinggi</span>
+                            </li>
+                            <li class="flex items-center justify-between border-t pt-3">
+                                <span class="font-bold">Harga saat ini</span>
+                                <span class="text-2xl font-bold text-indigo-600">IDR 184k</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="bg-gray-50 p-6 rounded-xl">
+                        <div id="price-chart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POAP Showcase -->
+    <section class="py-20 bg-indigo-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Koleksi lencana</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Kumpulkan lencana dan dapatkan hadiah menarik.</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-12">
+                <div class="poap-badge bg-white p-2 rounded-full flex flex-col items-center">
+                    <img src="img/orkestra.png" alt="Music festival POAP badge with soundwave and guitar design in neon colors" class="w-16 h-16 rounded-full mb-2">
+                    <span class="text-xs font-medium text-center">Orkestra</span>
+                </div>
+                <div class="poap-badge bg-white p-2 rounded-full flex flex-col items-center">
+                    <img src="img/Drama Musical.png" alt="Blockchain conference POAP badge with digital blockchain nodes connected" class="w-16 h-16 rounded-full mb-2">
+                    <span class="text-xs font-medium text-center">Drama musical</span>
+                </div>
+                <div class="poap-badge bg-white p-2 rounded-full flex flex-col items-center">
+                    <img src="img/music.png" alt="Art exhibition POAP badge with abstract paint splatter in vibrant colors" class="w-16 h-16 rounded-full mb-2">
+                    <span class="text-xs font-medium text-center">Konser music</span>
+                </div>
+                <div class="poap-badge bg-white p-2 rounded-full flex flex-col items-center">
+                    <img src="img/programming.png" alt="Charity gala POAP badge with golden heart and ribbon design" class="w-16 h-16 rounded-full mb-2">
+                    <span class="text-xs font-medium text-center">Programming</span>
+                </div>
+                <div class="poap-badge bg-white p-2 rounded-full flex flex-col items-center">
+                    <img src="img/pameran lukisan.png" alt="Tech workshop POAP badge with microchip and digital elements" class="w-16 h-16 rounded-full mb-2">
+                    <span class="text-xs font-medium text-center">Pameran lukisan</span>
+                </div>
+                <div class="poap-badge bg-white p-2 rounded-full flex flex-col items-center">
+                    <img src="img/pameran tari.png" alt="Science museum VIP tour POAP badge with DNA helix and atoms design" class="w-16 h-16 rounded-full mb-2">
+                    <span class="text-xs font-medium text-center">Pameran tari</span>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <button class="px-8 py-3 gradient-bg text-white font-bold rounded-lg hover:opacity-90 transition">Lihat koleksi lencanamu</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- KYC Verification -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <img src="img/banneratas.png" alt="Illustration of secure identity verification process with shield and fingerprint icons" class="rounded-xl">
+                </div>
+                <div class="md:w-1/2 md:pl-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6"> Verifikasi keamanan</h2>
+                    <p class="text-xl text-gray-600 mb-6">Sistem KYC kami memastikan pembelian tiket autentik sekaligus melindungi data pribadi Anda..</p>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <div class="bg-green-100 p-2 rounded-full mr-4">
+                                <i class="fas fa-check text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Verifikasi tiket</h4>
+                                <p class="text-gray-600">Verifikasi sekali dan beli tiket dengan aman selamanya</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-green-100 p-2 rounded-full mr-4">
+                                <i class="fas fa-check text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Perlindungan identitas</h4>
+                                <p class="text-gray-600">Data Anda dienkripsi dan tidak pernah dibagikan dengan penyelenggara acara</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-green-100 p-2 rounded-full mr-4">
+                                <i class="fas fa-check text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Pencegahan Bot dan pembelian massal</h4>
+                                <p class="text-gray-600">Identitas terverifikasi mencegah bot dan pembelian massal</p>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <button class="px-8 py-3 gradient-bg text-white font-bold rounded-lg hover:opacity-90 transition">Daptkan Verifikasi</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Ulasan tentang kami</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Dipercaya oleh penyelenggara acara dan peserta di seluruh dunia</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <img src="img/sarah jhonson.jpg" alt="Portrait of Sarah Johnson, female event organizer in her 30s smiling" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Sarah Johnson</h4>
+                            <div class="text-sm text-gray-500">Peserta konser</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">"Saya sangat merasa senang, karena dengan membeli tiket disini saya bisa mendapatkan benefit yang menarik dan bahkan tidak ada ditempat lain"</p>
+                    <div class="text-amber-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <img src="img/michael chen.jpg" alt="Portrait of Michael Chen, young male concert attendee with glasses" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Michael Chen</h4>
+                            <div class="text-sm text-gray-500">Peserta konser</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">"Getting real tickets at fair prices is amazing. The POAP collection shows all the great shows I've been to."</p>
+                    <div class="text-amber-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <img src="img/david rodriguez.jpg" alt="Portrait of David Rodriguez, male tech conference speaker in blazer" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">David Rodriguez</h4>
+                            <div class="text-sm text-gray-500">Peserta konser</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">"Ini memberikan pengalaman yang berharga untuk saya, jadi saya tidak harus mencari calo lagi untuk membeli tiketnya."</p>
+                    <div class="text-amber-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="gradient-bg text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Siap untuk Pemesanan Tiket Acara yang Adil dan Aman?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Jadikan hidup anda lebih mudah, aman, dan nyaman bersama kami!.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="img/logo.png" alt="NexusTicket logo - abstract hexagonal logo with gradient purple to teal colors" class="h-10 w-10 rounded-full mr-2">
+                        <h3 class="text-xl font-bold text-white">Tiketmu.com</h3>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">WCHL2025</h4>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                   Hak cipta © 2025 Tiketmu.com.
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-white">Privacy Policy</a>
+                    <a href="#" class="hover:text-white">Terms of Service</a>
+                    <a href="#" class="hover:text-white">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
